@@ -10,13 +10,14 @@ agregar nota final, con los aciertos
 Lograr que no se repitan las preguntas...
 -----------------------------------------
 mostrar respuestas INCORRECTAS!
-
+-----------------------------------------
+agregar puntaje actual junto a la pregunta actual
 */
 
-const sForm = ['add', 'borrow', 'clap', 'cook', 'enjoy', 'hear', 'help', 'kiss', 'lower', 'plan'];
-const sPast = ['added', 'borrowed', 'clapped', 'cooked', 'enjoyed', 'heard', 'helped', 'kissed', 'lowered', 'planned'];
-const pParticiple = ['added', 'borrowed', 'clapped', 'cooked', 'enjoyed', 'heard', 'helped', 'kissed', 'lowered', 'planned'];
-const spanishVerb = ['agregar', 'tomar prestado', 'aplaudir', 'cocinar', 'disfrutar', 'oír', 'ayudar', 'besar', 'reducir', 'planear'];
+const sForm = ['add', 'borrow', 'clap', 'cook', 'enjoy', 'hear', 'help', 'kiss', 'lower', 'plan','bleed','broadcast','empty','grate','light','mind','rid','spread','teach','yawn','weigh'];
+const sPast = ['added', 'borrowed', 'clapped', 'cooked', 'enjoyed', 'heard', 'helped', 'kissed', 'lowered', 'planned','bled','broadcast','emptied','grated','lit','minded','rid','spread','taught','yawned','weighed'];
+const pParticiple = ['added', 'borrowed', 'clapped', 'cooked', 'enjoyed', 'heard', 'helped', 'kissed', 'lowered', 'planned','bled','broadcast','emptied','grated','lit','minded','rid','spread','taught','yawned','weighed'];
+const spanishVerb = ['agregar', 'tomar prestado', 'aplaudir', 'cocinar', 'disfrutar', 'oír', 'ayudar', 'besar', 'reducir', 'planear','sangrar','difundir','desocupar/vaciar','rallar/raspar','encender','preocupar/cuidar','deshacerse','esparcir/extender','enseñar','bostezar','pesar'];
 let wrongAnswer = [], okAnswer = [];
 let aux = "";
 let cont = 0;
@@ -29,7 +30,7 @@ const forms = () => { //numero aleatorio para la forma verbal
     return nForms;
 }
 const verbs = () => {//numero aleatorio para el verbo
-    nVerb = Math.floor(Math.random() * (0, 10));
+    nVerb = Math.floor(Math.random() * (0, 21));
     return nVerb;
 }
 
@@ -49,9 +50,10 @@ const supr = () => {//suprime undefined e imprime respuestas incorrectas y su re
 }
 
 
+let used = [];
+let repeat = [""];
+
 for (i = 0; i < 20; i++) {
-    let used = [];
-    let repeat = [""];
     forms();
     verbs();
     used[i] = nForms.toString() + nVerb.toString();
@@ -67,7 +69,7 @@ for (i = 0; i < 20; i++) {
 
             switch (nForms) {
                 case 0:
-                    aux = prompt(`how do you say "${spanishVerb[nVerb]}" in its simple form?`).toLowerCase();
+                    aux = prompt(`how do you say "${spanishVerb[nVerb]}" in its simple form? | score: ${cont}/${i}`).toLowerCase();
                     if (aux === sForm[nVerb]) {
                         cont++;
                     } else {
@@ -77,7 +79,7 @@ for (i = 0; i < 20; i++) {
                     }
                     break;
                 case 1:
-                    aux = prompt(`how do you say "${spanishVerb[nVerb]}" in its simple past?`).toLowerCase();
+                    aux = prompt(`how do you say "${spanishVerb[nVerb]}" in its simple past? | score: ${cont}/${i}`).toLowerCase();
                     if (aux === sPast[nVerb]) {
                         cont++;
                     } else {
@@ -87,7 +89,7 @@ for (i = 0; i < 20; i++) {
                     }
                     break;
                 case 2:
-                    aux = prompt(`how do you say "${spanishVerb[nVerb]}" in its past participle?`).toLowerCase();
+                    aux = prompt(`how do you say "${spanishVerb[nVerb]}" in its past participle? | score: ${cont}/${i}`).toLowerCase();
                     if (aux === pParticiple[nVerb]) {
                         cont++;
                     } else {
