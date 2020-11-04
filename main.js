@@ -18,10 +18,15 @@ function cargarJSON() {
                 nVerb = Math.floor(Math.random() * (0, jsonVerbs.length));
                 return nVerb;
             }
+            const feedBack = () =>{//mensaje al final del examen con la nota y mensaje al alumno
+                return (`<br>Ha acertado un total de ${cont}/20 verbos <br>Tu nota final es
+                ${((cont * 10) / 20).toFixed(2)}<br>`);
+            }
 
-            let exam = document.getElementById('exam');
-            let tittleExam = document.getElementById('tittleExam');
-            let note = document.getElementById('note');
+            let mean = document.getElementById('mean');
+            let wrong = document.getElementById('wrong');
+            let correct = document.getElementById('correct')
+            let grades = document.getElementById('grades');
 
             const supr = () => {//suprime undefined e imprime respuestas incorrectas y su respectivas respuestas correctas
                 for (let i = 0; i < wrongAnswer.length; i++) {
@@ -32,27 +37,48 @@ function cargarJSON() {
                         --i
                     } else {
                         if (nForms === 0) {
-                            exam.innerHTML += (`N° ${i + 1}: "${wrongAnswer[i]}"
-                =====> Respuesta Correcta: "${okAnswer[i]}"=====> Significado: "${answer[i]}"<br>`);
+                            wrong.innerHTML += `${i + 1}) ${wrongAnswer[i]}<br><hr>`
+                            correct.innerHTML += `${i + 1}) ${okAnswer[i]}<br><hr>`
+                            mean.innerHTML += `${i + 1}) ${answer[i]}<br><hr>`
                         } else if (nForms === 1) {
-                            exam.innerHTML += (`N° ${i + 1}: "${wrongAnswer[i]}"
-                =====> Respuesta Correcta: "${okAnswer[i]}"=====> Significado: "${answer[i]}"<br>`);
+                            wrong.innerHTML += `${i + 1}) ${wrongAnswer[i]}<br><hr>`
+                            correct.innerHTML += `${i + 1}) ${okAnswer[i]}<br><hr>`
+                            mean.innerHTML += `${i + 1}) ${answer[i]}<br><hr>`
                         } else {
-                            exam.innerHTML += (`N° ${i + 1}: "${wrongAnswer[i]}"
-                =====> Respuesta Correcta: "${okAnswer[i]}"=====> Significado: "${answer[i]}"<br>`);
+                            wrong.innerHTML += `${i + 1}) ${wrongAnswer[i]}<br><hr>`
+                            correct.innerHTML += `${i + 1}) ${okAnswer[i]}<br><hr>`
+                            mean.innerHTML += `${i + 1}) ${answer[i]}<br><hr>`
                         }
                     }
                 }
-                tittleExam.innerHTML = "<h2>Respuestas Incorrectas:</h2>";
-                note.innerHTML = (`<br>Ha acertado un total de ${cont}/20 verbos <br>Tu nota final es
-                ${((cont * 10) / 20).toFixed(2)}<br>`);
+                wrong.innerHTML = `
+                <h2 id ="inc">Respuestas Incorrectas</h2>
+                <div>${wrong.innerHTML}</div>
+                `;
+                correct.innerHTML = `
+                <h2 id ="cor">Respuestas Correctas</h2>
+                <div>${correct.innerHTML}</div>
+                `;
+                mean.innerHTML = `
+                <h2 id ="sig">Significado</h2>
+                <div>${mean.innerHTML}</div>
+                `;
+                if(cont < 8){
+                    grades.innerHTML = `${feedBack()} No te desanimes sigue practicando, con practica vas a poder superar este examen`;
+                }else if(cont >= 8 && cont > 14){
+                    grades.innerHTML = `${feedBack()} No esta para nada mal, esta aprobado, se puede mejorar bastante pero no es facil llegar hasta aca, podes estar feliz con vos mismo`;
+                }else if(cont >= 14 && cont < 20){
+                    grades.innerHTML = `${feedBack()} Se nota que estudiaste mucho, muy buena nota y esto no quiere decir que no sigues superandote, pero estas en un gran nivel felicidades!`;
+                }else{
+                    grades.innerHTML = `${feedBack()} ¡¡¡¡¡¡CONGRATULATIONS YOU ARE AMAZING, YOUR LEVEL OF ENGLISH IS UNBELIEVABLE!!!!!`;
+                }
             }
 
 
             let used = [];
             let repeat = [""];
 
-            for (let i = 0; i < 2; i++) {
+            for (let i = 0; i < 20; i++) {
                 forms();
                 verbss();
                 used[i] = nForms.toString() + nVerb.toString();

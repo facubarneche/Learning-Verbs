@@ -1,11 +1,42 @@
 .body{
     font-family: 'Courier New', Courier, monospace;
 }
-
 .tittle{
     text-align: center;
     font-size: 30px;
+    padding: 0px;
 }
-.tittleExam h2{
+.tittle h1{
+    padding: 0px;
+    margin-bottom: 0px;
+}
+.conteiner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;    
+}
+.files{
+    padding: 30px;
+}
+#inc{
     color: red;
+    text-align: center;
+    text-decoration: underline;
+}
+#cor{
+    color: green;
+    text-align: center;
+    text-decoration: underline;
+}
+#sig{
+    color: blue;
+    text-align: center;
+    text-decoration: underline;
+}
+.grades{
+    font-size: 18px;
+    font-weight: bolder;
+    font-style: oblique;
+    padding-left: 60px;
+    
 }
