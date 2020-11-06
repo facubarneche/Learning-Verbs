@@ -22,16 +22,25 @@
     color: red;
     text-align: center;
     text-decoration: underline;
+    min-width: 230px;
 }
 #cor{
-    color: green;
+    color: pink;
     text-align: center;
     text-decoration: underline;
+    min-width: 230px;
 }
 #sig{
     color: blue;
     text-align: center;
     text-decoration: underline;
+    min-width: 230px;
+}
+#oka{
+    color: green;
+    text-align: center;
+    text-decoration: underline;
+    min-width: 230px;
 }
 .grades{
     font-size: 18px;
