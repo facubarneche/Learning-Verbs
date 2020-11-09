@@ -37,9 +37,6 @@ function cargarJSON() {
             let correct = document.getElementById('correct');
             let ok = document.getElementById('ok');
             let grades = document.getElementById('grades');
-            // let span = document.getElementById('span');
-            // let text = document.getElementById('text');
-            // let button = document.getElementById('button');
 
             const supr = () => {//suprime undefined e imprime respuestas incorrectas y su respectivas respuestas correctas
                 for (let i = 0; i < answer.length; i++) {
