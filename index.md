@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="es">
 
-You can use the [editor on GitHub](https://github.com/facubarneche/Learning-Verbs/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Learning Verbs</title>
+</head>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<body class="body">
+    <header class="tittle">
+        <h1>English Test</h1>
+    </header>
 
-### Markdown
+    <section class="conteiner">
+        <div id="ok" class="files"></div>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+        <div id="wrong" class="files"></div>
 
-```markdown
-Syntax highlighted code block
+        <div id="correct" class="files"></div>
 
-# Header 1
-## Header 2
-### Header 3
+        <div id="mean" class="files"></div>
+    </section>
 
-- Bulleted
-- List
+    <section id="grades" class="grades">
 
-1. Numbered
-2. List
+    </section>
 
-**Bold** and _Italic_ and `Code` text
+    
+    <script type="module" src="main.js"></script>
+</body>
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/facubarneche/Learning-Verbs/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+</html>
